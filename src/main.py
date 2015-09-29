@@ -1,0 +1,2 @@
+test="trololol"
+print(test)
