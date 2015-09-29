@@ -1,9 +1,12 @@
 class Boat():
-    def __init__(self, nom, taille):
+    def __init__(self, nom, size, id):
        self.nom=nom
-       self.taille=taille
+       self.size=size
        self.x=-1
        self.y=-1
+       self.id=id
+       self.touch=0
+       self.down=False
 
     def getNom(self):
         return self.nom
@@ -11,11 +14,11 @@ class Boat():
     def setNom(self, nom):
         self.nom=nom
 
-    def getTaille(self):
-        return self.taille
+    def getSize(self):
+        return int(self.size)
 
-    def setTaille(self, taille):
-        self.taille=taille
+    def setSize(self, size):
+        self.size=size
 
     def setCoordonees(self, x, y):
         self.x=x
@@ -23,3 +26,11 @@ class Boat():
 
     def getCoordonnees(self):
         return [self.x, self.y]
+    
+    def touched(self):
+        self.touch += 1
+        if self.touch == self.size:
+            self.down=True
+            return True
+        else:
+            return False
