@@ -27,10 +27,13 @@ class Boat():
     def getCoordonnees(self):
         return [self.x, self.y]
     
-    def touched(self):
+    def checkBoat(self,id):
+    #Si le bateau est touché, on rend l'id négatif sur la grille
+        self.id =id
         self.touch += 1
         if self.touch == self.size:
             self.down=True
+            self.id = -id
             return True
         else:
             return False
